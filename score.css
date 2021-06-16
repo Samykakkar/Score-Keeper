@@ -47,7 +47,7 @@ table {
 	border-spacing: 0;
 }
 
-.btn-primary{
+#p1button{
     background-color: rgb(5, 209, 216);
     padding:  13px 40px;
     border-radius:2px;
@@ -60,7 +60,7 @@ table {
 
 
 
-.btn-secondary{
+#p2button{
     background-color: rgb(0, 115, 247);
     padding:  13px 40px;
     border-radius:2px;
@@ -71,7 +71,7 @@ table {
 }
 
 
-.btn-danger{
+#reset{
     background-color: rgb(255, 2, 2);
     padding:  13px 65px;
     border-radius:2px;
@@ -86,3 +86,6 @@ h1{
     font-size: 50px;
 }
     
+h3{
+    font-weight: 200;
+}
