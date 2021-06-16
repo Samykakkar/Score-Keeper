@@ -1,43 +1,51 @@
-const p1button = document.querySelector('#p1button')
-const p2button = document.querySelector('#p2button')
-const p1dispaly = document.querySelector('#p1display')
-const p2dispaly = document.querySelector('#p2display')
+const p1 = {
+    score: 0,
+    button: document.querySelector('#p1button'),
+    display: document.querySelector('#p1display')
+
+}
+const p2 = {
+    score: 0,
+    button: document.querySelector('#p2button'),
+    display: document.querySelector('#p2display')
+
+}
+
+
+
 const resetbtn = document.querySelector('#reset')
 const winningscoreselect = document.querySelector('#playto')
 
-let p1score = 0
-let p2score = 0
+
 let winningscore = 3
 let isgameover = false
-p1button.addEventListener('click', function () {
+
+
+
+function updatescore(player, opponent) {
     if (!isgameover) {
-        p1score += 1
-        if (p1score === winningscore) {
+        player.score += 1
+        if (player.score === winningscore) {
             isgameover = true
-            p1display.classlist.add('has-text-success')
-            p2display.classlist.add('has-text-danger')
-            p1button.disabled = true
-            p2button.disabled = true
+           // player.display.classlist.add('has-text-success')
+            //opponent.display.classlist.add('has-text-danger')
+            player.button.disabled = true
+            opponent.button.disabled = true
         }
-        p1display.textContent = p1score
+        player.display.textContent = player.score
     }
+
+}
+
+
+p1.button.addEventListener('click', function () {
+    updatescore(p1,p2)
 
 })
 
 
-p2button.addEventListener('click', function () {
-    if (!isgameover) {
-        p2score += 1
-        if (p2score === winningscore) {
-            isgameover = true
-            p2display.classlist.add('has-text-success')
-            p1display.classlist.add('has-text-danger')
-            p1button.disabled = true
-            p2button.disabled = true
-        }
-        p2display.textContent = p2score
-    }
-
+p2.button.addEventListener('click', function () {
+    updatescore(p2,p1)
 })
 
 winningscoreselect.addEventListener('change', function () {
@@ -50,13 +58,13 @@ resetbtn.addEventListener('click', reset)
 
 function reset() {
     isgameover = false
-    p1score = 0
-    p2score = 0
-    p1display.textContent = 0
-    p2dispaly.textContent = 0
-    p1display.classlist.remove('has-text-success', 'has-text-danger')
-    p2display.classlist.remove('has-text-success', 'has-text-danger')
-    p1button.disabled = false
-    p2button.disabled = false
+    p1.score = 0
+    p2.score = 0
+    p1.display.textContent = 0
+    p2.display.textContent = 0
+   // p1.display.classlist.remove('has-text-success', 'has-text-danger')
+    //p2.display.classlist.remove('has-text-success', 'has-text-danger')
+    p1.button.disabled = false
+    p2.button.disabled = false
 }
 
