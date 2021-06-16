@@ -58,6 +58,12 @@ resetbtn.addEventListener('click', reset)
 
 function reset() {
     isgameover = false
+    for(let p of [p1,p2]){
+        p.score=0
+        p.display.textContent=0
+        //p.display.classlist.remove('has-text-success', 'has-text-danger')
+        p.button.disabled = false
+    }
     p1.score = 0
     p2.score = 0
     p1.display.textContent = 0
